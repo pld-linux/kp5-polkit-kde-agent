@@ -1,15 +1,15 @@
-%define		kdeplasmaver	5.15.3
+%define		kdeplasmaver	5.21.2
 %define		qtver		5.9.0
 %define		kpname		polkit-kde-agent
 
 Summary:	Daemon providing a polkit authentication UI for KDE
 Name:		kp5-%{kpname}
-Version:	5.15.3
+Version:	5.21.2
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-1-%{version}.tar.xz
-# Source0-md5:	4b364062f59fb9599ef7c60fbcc1d9e2
+# Source0-md5:	1bf15dbc1bf98c87b1f235cb7a153d97
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -40,6 +40,7 @@ install -d build
 cd build
 %cmake -G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	../
 %ninja_build
 
@@ -61,3 +62,4 @@ rm -rf $RPM_BUILD_ROOT
 /etc/xdg/autostart/polkit-kde-authentication-agent-1.desktop
 %{_datadir}/knotifications5/policykit1-kde.notifyrc
 %{_desktopdir}/org.kde.polkit-kde-authentication-agent-1.desktop
+%{systemduserunitdir}/plasma-polkit-agent.service
