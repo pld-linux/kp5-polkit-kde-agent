@@ -5,7 +5,7 @@
 Summary:	Daemon providing a polkit authentication UI for KDE
 Name:		kp5-%{kpname}
 Version:	5.23.4
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-1-%{version}.tar.xz
@@ -23,6 +23,7 @@ BuildRequires:	kf5-knotifications-devel
 BuildRequires:	kf5-kwidgetsaddons-devel
 BuildRequires:	kf5-kwindowsystem-devel
 BuildRequires:	ninja
+BuildRequires:	polkit-qt5-1-gui-devel
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
