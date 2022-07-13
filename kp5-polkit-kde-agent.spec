@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.25.2
-%define		qtver		5.9.0
+%define		kdeplasmaver	5.25.3
+%define		qtver		5.15.2
 %define		kpname		polkit-kde-agent
 
 Summary:	Daemon providing a polkit authentication UI for KDE
 Name:		kp5-%{kpname}
-Version:	5.25.2
+Version:	5.25.3
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-1-%{version}.tar.xz
-# Source0-md5:	1b9523695a8fd03a8ca9fb4eed51ee53
+# Source0-md5:	8a53db3e1e2c0f860ce0ac5ffd4dc65b
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
