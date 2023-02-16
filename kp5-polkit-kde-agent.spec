@@ -8,7 +8,7 @@
 Summary:	Daemon providing a polkit authentication UI for KDE
 Name:		kp5-%{kpname}
 Version:	5.27.0
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-1-%{version}.tar.xz
@@ -56,6 +56,9 @@ ctest
 %install
 rm -rf $RPM_BUILD_ROOT
 %ninja_install -C build
+
+# not supported by glibc yet
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
 
 %find_lang %{kpname} --all-name --with-kde
 
