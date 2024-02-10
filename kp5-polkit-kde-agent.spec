@@ -1,37 +1,37 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.27.10
+%define		kdeplasmaver	5.93.0
 %define		qtver		5.15.2
 %define		kpname		polkit-kde-agent
 
 Summary:	Daemon providing a polkit authentication UI for KDE
 Name:		kp5-%{kpname}
-Version:	5.27.10
-Release:	1
+Version:	5.93.0
+Release:	0.1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-1-%{version}.tar.xz
-# Source0-md5:	17302ca60f68e13e85bc24a4ec873622
+Source0:	https://download.kde.org/unstable/plasma/%{kdeplasmaver}/%{kpname}-1-%{version}.tar.xz
+# Source0-md5:	4f49f08403d897f48c6885ad50e4b572
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16.0
-BuildRequires:	kf5-kconfig-devel
-BuildRequires:	kf5-kcoreaddons-devel
-BuildRequires:	kf5-kcrash-devel
-BuildRequires:	kf5-kdbusaddons-devel
-BuildRequires:	kf5-ki18n-devel
-BuildRequires:	kf5-kiconthemes-devel
-BuildRequires:	kf5-knotifications-devel
-BuildRequires:	kf5-kwidgetsaddons-devel
-BuildRequires:	kf5-kwindowsystem-devel
+BuildRequires:	kf6-kconfig-devel
+BuildRequires:	kf6-kcoreaddons-devel
+BuildRequires:	kf6-kcrash-devel
+BuildRequires:	kf6-kdbusaddons-devel
+BuildRequires:	kf6-ki18n-devel
+BuildRequires:	kf6-kiconthemes-devel
+BuildRequires:	kf6-knotifications-devel
+BuildRequires:	kf6-kwidgetsaddons-devel
+BuildRequires:	kf6-kwindowsystem-devel
 BuildRequires:	ninja
-BuildRequires:	polkit-qt5-1-gui-devel
+BuildRequires:	polkit-qt6-1-gui-devel
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	xz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		qt5dir		%{_libdir}/qt5
+%define		qt6dir		%{_libdir}/qt6
 
 %description
 Daemon providing a polkit authentication UI for KDE.
@@ -70,6 +70,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libexecdir}/polkit-kde-authentication-agent-1
 /etc/xdg/autostart/polkit-kde-authentication-agent-1.desktop
-%{_datadir}/knotifications5/policykit1-kde.notifyrc
 %{_desktopdir}/org.kde.polkit-kde-authentication-agent-1.desktop
 %{systemduserunitdir}/plasma-polkit-agent.service
+%{_datadir}/knotifications6/policykit1-kde.notifyrc
